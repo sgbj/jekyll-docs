@@ -1,0 +1,6 @@
+{%- assign words = include.content | number_of_words -%}
+{%- if words < 275 -%}
+    1 minute
+{%- else -%}
+    {{ words | divided_by: 135 }} minutes
+{%- endif -%}
