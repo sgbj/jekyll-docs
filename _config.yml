@@ -13,10 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Help
-email: some@email.com
+title: Documentation
+company: Platform
+email: webmaster@company.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Help & support for our customers.
+  Documentation for our platform 📃
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -25,9 +26,9 @@ markdown: kramdown
 
 collections:
   some-product:
-    name: Some Product
-    description: Get stuff done with this blazing fast app.
-    icon: rocket
+    title: Some product
+    description: Get stuff done blazing fast with this product.
+    illustration: user-astronaut
     output: true
     permalink: /:collection/:categories/:name
 

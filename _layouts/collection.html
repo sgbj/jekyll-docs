@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+
+
+<div class="container">
+
+  {%- if page.title -%}
+    <div class="main-heading pb-3">
+      <h3>{{ page.title | escape }}</h3>
+      {%- if page.description -%}
+        <p class="lead text-muted">{{ page.description | escape }}</p>
+      {% endif -%}
+    </div>
+  {%- endif -%}
+
+
+  {{ content }}
+
+  <a href="#" class="card mb-3">
+    <div class="card-body">
+
+      <h5 class="card-title mb-2">Getting started 🎉</h5>
+      <small class="d-block mb-2 text-muted">
+        <i class="fal fa-calendar"></i>
+        5/30/2018 &nbsp;
+        <i class="fal fa-clock"></i>
+        2 minutes to read &nbsp;
+        <i class="fal fa-users"></i>
+        Contributors
+      </small>
+      <p class="card-text">Some quick example text to build on the card.</p>
+    </div>
+  </a>
+</div>

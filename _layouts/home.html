@@ -2,33 +2,43 @@
 layout: default
 ---
 
-<div class="home">
+
+
+<div class="container">
+
   {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+    <h3 class="main-heading">{{ page.title }}</h3>
   {%- endif -%}
 
   {{ content }}
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
+  <div class="row">
+    {%- for collection in site.collections -%}
+      {%- if collection.docs.size > 0 %}
+      <div class="col-12 col-md-6">
+        <a href="{{ collection.label | relative_url }}" class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-xs-auto">
+              <div class="illustration"><i class="fal fa-{{ collection.illustration | escape }}"></i></div>
+            </div>
+            <div class="col">
+              <div class="card-body">
+                <h5 class="card-title">{{ collection.title | escape }}</h5>
+                <p class="card-text">{{ collection.description | escape }}</p>
+                <div class="text-muted">{{ collection.docs.size}} {%- if collection.docs.size == 1 %} article {%- else %} articles {%- endif %}</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {%- endif %}
+    {%- endfor -%}
+  </div>
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%}
+
+
+
+
+
 
 </div>
