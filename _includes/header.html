@@ -2,16 +2,21 @@
   <div class="container">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
-    <a class="float-left" rel="author" href="{{ "/" | relative_url }}"><i class="fal fa-rocket"></i> {{ site.company }} | {{ site.title | escape }}</a>
-
-    <a href="{{ site.companyurl }}" class="float-right"><i class="fal fa-external-link"></i> Go to {{ site.company }}</a>
-
+    <div class="float-md-left mb-1">
+      <a rel="author" href="{{ "/" | relative_url }}"><i class="fal fa-rocket"></i> {{ site.company }} | {{ site.title | escape }}</a>
+    </div>
+    <div class="float-md-right pb-1">
+      <a href="{{ site.companyurl }}"><i class="fal fa-external-link"></i> Go to {{ site.company }}</a>
+    </div>
     <div class="clearfix mb-3"></div>
 
     {%- if page.layout == "home" -%}
     <h1>{{ site.description | escape }}</h1>
     {%- endif -%}
 
-    <input type="search" class="form-control form-control-lg mt-3 fadeIn" placeholder="Search documentation..." aria-label="Search" autofocus>
+    <form action="{{ "/search" | relative_url }}">
+      <input id="search" name="q" type="search" class="form-control form-control-lg mt-3 fadeIn" placeholder="Search documentation..." aria-label="Search" autofocus>
+      <button class="sr-only">Search</button>
+    </form>
   </div>
 </header>

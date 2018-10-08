@@ -1,0 +1,26 @@
+---
+---
+{%- assign id = 0 -%}
+[
+  {%- for collection in site.collections -%}
+    {%- for article in site[collection.label] -%}
+      {%- if article.slug == "index" -%}
+        {
+          "id": "{{ id }}",
+          "title": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
+          "excerpt": "{{ collection.description | strip_html | strip_newlines | remove:'"' }}",
+          "url": "{{ collection.label | relative_url }}"
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- else -%}
+        {
+          "id": "{{ id }}",
+          "title": "{{ article.title | strip_html | strip_newlines | remove:'"' }}",
+          "excerpt": "{{ article.excerpt | strip_html | strip_newlines | remove:'"' }}",
+          "url": "{{ article.url | relative_url }}"
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endif -%}
+      {%- assign id = id | plus: 1 -%}
+      {%- unless forloop.last -%}{%- if collections.docs.size > 1 -%},{%- endif -%}{%- endunless -%}
+    {%- endfor -%}
+  {%- endfor -%}
+]
