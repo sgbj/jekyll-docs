@@ -1,8 +1,9 @@
 ---
 ---
+{%- assign collections = site.collections | where_exp: "collection", "collection.label != 'posts'" -%}
 {%- assign id = 0 -%}
 [
-  {%- for collection in site.collections -%}
+  {%- for collection in collections -%}
     {%- for article in site[collection.label] -%}
       {%- if article.slug == "index" -%}
         {
