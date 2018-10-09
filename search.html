@@ -22,7 +22,8 @@ layout: default
 <template id="result-template">
   <a href="ARTICLE_URL" class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title mb-2">ARTICLE_TITLE</h5>
+      <h5 class="card-title mb-2"><i class="text-primary fal fa-ARTICLE_ICON"></i> ARTICLE_TITLE</h5>
+      <small class="d-block mb-2 text-muted">in ARTICLE_CATEGORY</small>
       <p class="card-text">ARTICLE_EXCERPT</p>
     </div>
   </a>
@@ -36,7 +37,7 @@ $(function () {
   var resultsCount = document.getElementById('results-count');
   var searchQ = document.getElementById('search-q');
   var resultTemplate = document.getElementById('result-template');
-  var q = new URLSearchParams(window.location.search).get('q');
+  var q = new URLSearchParams(window.location.search).get('q') || '';
   var idx;
 
   search.value = q;
@@ -55,18 +56,20 @@ $(function () {
           this.add(doc);
         }, this);
       });
-
       var searchResults = idx.search(q);
 
       resultsCount.innerText = searchResults.length + (searchResults.length == 1 ? ' result' : ' results');
 
       var html = searchResults.map(function (result) {
         var document = documents[result.ref];
+        console.log(resultTemplate.innerHTML);
         return resultTemplate.innerHTML
           .replace('ARTICLE_URL', document.url)
           .replace('ARTICLE_TITLE', document.title)
-          .replace('ARTICLE_EXCERPT', document.excerpt);
-      }).join();
+          .replace('ARTICLE_CATEGORY', document.category)
+          .replace('ARTICLE_EXCERPT', document.excerpt)
+          .replace('ARTICLE_ICON', document.isCategory ? 'books' : 'book');
+      }).join('');
 
       results.innerHTML = html;
     });

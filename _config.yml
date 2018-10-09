@@ -28,8 +28,14 @@ markdown: kramdown
 collections:
   some-product:
     title: Some product
-    description: Get stuff done blazing fast with this product.
+    description: Get stuff done blazing fast with this.
     illustration: user-astronaut
+    output: true
+    permalink: /:collection/:name
+  another-product:
+    title: Another product
+    description: This other product is also really useful.
+    illustration: space-shuttle
     output: true
     permalink: /:collection/:name
 

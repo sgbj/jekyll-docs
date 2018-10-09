@@ -91,20 +91,12 @@ a.card {
   transition: .15s ease-in-out;
 
   &:hover {
-    border-color: #007bff;
     transform: scale(1.015);
-    box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.96);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
   
   &:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    outline: none;
-  }
-  
-  &:focus:hover {
-    box-shadow:
-      0 0 0 0.1rem rgba(0, 0, 0, 0.96),
-      0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
 
   .illustration {

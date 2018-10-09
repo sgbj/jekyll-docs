@@ -8,19 +8,24 @@
         {
           "id": "{{ id }}",
           "title": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
+          "category": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
           "excerpt": "{{ collection.description | strip_html | strip_newlines | remove:'"' }}",
+          "isCategory": true,
           "url": "{{ collection.label | relative_url }}"
-        }{%- unless forloop.last -%},{%- endunless -%}
+        }
       {%- else -%}
         {
           "id": "{{ id }}",
           "title": "{{ article.title | strip_html | strip_newlines | remove:'"' }}",
+          "category": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
           "excerpt": "{{ article.excerpt | strip_html | strip_newlines | remove:'"' }}",
+          "isCategory": false,
           "url": "{{ article.url | relative_url }}"
-        }{%- unless forloop.last -%},{%- endunless -%}
+        }
       {%- endif -%}
+      {%- unless forloop.last -%},{%- endunless -%}
       {%- assign id = id | plus: 1 -%}
-      {%- unless forloop.last -%}{%- if collections.docs.size > 1 -%},{%- endif -%}{%- endunless -%}
     {%- endfor -%}
+    {%- unless forloop.last -%}{%- if collection.docs.size > 0 -%},{%- endif -%}{%- endunless -%}
   {%- endfor -%}
 ]
