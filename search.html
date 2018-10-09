@@ -23,7 +23,7 @@ layout: default
   <a href="ARTICLE_URL" class="card mb-3">
     <div class="card-body">
       <h5 class="card-title mb-2"><i class="text-primary fal fa-ARTICLE_ICON"></i> ARTICLE_TITLE</h5>
-      <small class="d-block mb-2 text-muted">in ARTICLE_CATEGORY</small>
+      <small class="d-block mb-2 text-muted">ARTICLE_COLLECTION</small>
       <p class="card-text">ARTICLE_EXCERPT</p>
     </div>
   </a>
@@ -66,9 +66,9 @@ $(function () {
         return resultTemplate.innerHTML
           .replace('ARTICLE_URL', document.url)
           .replace('ARTICLE_TITLE', document.title)
-          .replace('ARTICLE_CATEGORY', document.category)
+          .replace('ARTICLE_COLLECTION', document.isCollection ? '' : document.collection)
           .replace('ARTICLE_EXCERPT', document.excerpt)
-          .replace('ARTICLE_ICON', document.isCategory ? 'books' : 'book');
+          .replace('ARTICLE_ICON', document.isCollection ? 'books' : 'book');
       }).join('');
 
       results.innerHTML = html;

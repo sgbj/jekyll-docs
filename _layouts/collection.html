@@ -24,7 +24,7 @@ layout: default
     <a href="{{ article.url | relative_url }}" class="card mb-3">
       <div class="card-body">
 
-        <h5 class="card-title mb-2">{{ article.title }}</h5>
+        <h5 class="card-title mb-2"><i class="text-primary fal fa-book"></i> {{ article.title }}</h5>
         <small class="d-block mb-2 text-muted">
           <i class="fal fa-calendar"></i>&nbsp;
           {{ article.date | date: "%-m/%-d/%Y" }}

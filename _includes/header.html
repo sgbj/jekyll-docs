@@ -15,7 +15,15 @@
     {%- endif -%}
 
     <form action="{{ "/search" | relative_url }}">
-      <input id="search" name="q" type="search" class="form-control form-control-lg mt-3 fadeIn" placeholder="Search documentation..." aria-label="Search" autofocus>
+      <div class="input-group input-group-lg mt-3 fadeIn">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fal fa-search"></i></span>
+        </div>
+        <input id="search" name="q" type="search" class="form-control" placeholder="Search documentation..." aria-label="Search" autofocus>
+        <div class="input-group-append">
+          <button class="btn btn-light" type="button" onclick="document.getElementById('search').value = ''"><i class="fal fa-times"></i></button>
+        </div>
+      </div>
       <button class="sr-only">Search</button>
     </form>
   </div>

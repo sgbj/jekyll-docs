@@ -8,18 +8,18 @@
         {
           "id": "{{ id }}",
           "title": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
-          "category": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
+          "collection": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
           "excerpt": "{{ collection.description | strip_html | strip_newlines | remove:'"' }}",
-          "isCategory": true,
+          "isCollection": true,
           "url": "{{ collection.label | relative_url }}"
         }
       {%- else -%}
         {
           "id": "{{ id }}",
           "title": "{{ article.title | strip_html | strip_newlines | remove:'"' }}",
-          "category": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
+          "collection": "{{ collection.title | strip_html | strip_newlines | remove:'"' }}",
           "excerpt": "{{ article.excerpt | strip_html | strip_newlines | remove:'"' }}",
-          "isCategory": false,
+          "isCollection": false,
           "url": "{{ article.url | relative_url }}"
         }
       {%- endif -%}
