@@ -62,7 +62,6 @@ $(function () {
 
       var html = searchResults.map(function (result) {
         var document = documents[result.ref];
-        console.log(resultTemplate.innerHTML);
         return resultTemplate.innerHTML
           .replace('ARTICLE_URL', document.url)
           .replace('ARTICLE_TITLE', document.title)
